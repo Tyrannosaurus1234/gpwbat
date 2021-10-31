@@ -132,11 +132,11 @@ int main(int argc, char** argv){
             std::cout << match.second << "%" << std::endl;
         else{
             if(strcmp(argv[1], "voltage") == 0)
-                std::cout << match.first << "V" << std::endl;
+                std::cout << v << "V" << std::endl;
             else if(strcmp(argv[1], "percentage") == 0)
                 std::cout << match.second << "%" << std::endl;
             else if(strcmp(argv[1], "both") == 0)
-                std::cout << match.first << "V " << match.second << "%" << std::endl;
+                std::cout << v << "V " << match.second << "%" << std::endl;
         }
         mfile.close();
         return 0;
