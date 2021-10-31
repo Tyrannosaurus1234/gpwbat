@@ -3,8 +3,8 @@ Prints to the command line your Logitech G Pro Wireless' current voltage and/or 
 
 #### Installation
 1. Download the binary from the releases page, or download the sole source file and compile it on your machine.
-2. chmod +x gpwbat
-3. ./gpwbat
+2. `chmod +x gpwbat` to make the binary executable
+3. `./gpwbat` to run
 
 #### Instructions
 ```./gpwbat``` to get the current battery level as a percentage.
