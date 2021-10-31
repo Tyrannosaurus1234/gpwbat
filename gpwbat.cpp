@@ -122,6 +122,27 @@ int main(int argc, char** argv){
         // so let's convert that to a float in volts
         float v = std::stof(line) / 1000000;
 
+        // if voltage is under minimum or over maximum, stop short and report
+        if(v > table.rbegin()->first){
+            if(argc == 1)
+                std::cout << "100%" << std::endl;
+            else{
+                if(strcmp(argv[1], "voltage") == 0)
+                    std::cout << v << "V" << std::endl;
+                else if(strcmp(argv[1], "percentage") == 0)
+                    std::cout << "100%" << std::endl;
+                else if(strcmp(argv[1], "both") == 0)
+                    std::cout << v << "V 100%" << std::endl;
+            }
+            mfile.close();
+            return 0;
+        }
+        else if(v < table.begin()->first){
+            std::cout << "CHARGE!" << std::endl;
+            mfile.close();
+            return 0;
+        }
+
         // find the lowest value in the table that isn't less than the current voltage
         std::map<float, int>::iterator mit = table.lower_bound(v);
         std::pair<float, int> match = {mit->first, mit->second};
